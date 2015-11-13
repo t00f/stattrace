@@ -1,7 +1,5 @@
 # -*- coding:utf-8 -*-
 
-import redis
-
 from unittest import TestCase
 from stattrace import Stattrace
 from datetime import date, timedelta
@@ -16,7 +14,7 @@ class TestreacherObjectives(TestCase):
         today = date.today()
         tomorrow = today + timedelta(days=1)
 
-        self.trace = Stattrace(redis=redis.StrictRedis(host="127.0.0.1", port="6379", db=7))
+        self.trace = Stattrace()
         self.trace.complete_objective("registration", today, "user1")
         self.trace.complete_objective("registration", today, "user2")
         self.trace.complete_objective("registration", today, "user3")
@@ -35,7 +33,7 @@ class TestreacherObjectives(TestCase):
         """
         self.trace.clear()
 
-    def test_reach_objectives_for_same_day(self):
+    def test_reach_objectives_with_dates(self):
         """
         """
         today = date.today()

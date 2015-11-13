@@ -1,7 +1,5 @@
 # -*- coding:utf-8 -*-
 
-import redis
-
 from unittest import TestCase
 from stattrace import Stattrace
 from datetime import date
@@ -13,7 +11,7 @@ class TestCompleteObjective(TestCase):
     def setUp(self):
         """
         """
-        self.trace = Stattrace(redis=redis.StrictRedis(host="127.0.0.1", port="6379", db=7))
+        self.trace = Stattrace()
 
     def tearDown(self):
         """
